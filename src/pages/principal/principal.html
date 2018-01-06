@@ -1,0 +1,42 @@
+<!--
+  Generated template for the PrincipalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>principal</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="op" >
+    <component-cuenta *ngSwitchCase="'card'"></component-cuenta>
+    <component-busqueda *ngSwitchCase="'search'"></component-busqueda>
+    <component-categoria *ngSwitchCase="'link'"></component-categoria>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+
+<div >
+    <ion-segment color="gray" [(ngModel)]="op">
+
+      <ion-segment-button value="search">
+        <ion-icon name="search" color="gray"></ion-icon>
+      </ion-segment-button>
+
+      <ion-segment-button value="card">
+        <ion-icon name="card" color="gray"></ion-icon>
+      </ion-segment-button>
+
+      <ion-segment-button value="link">
+        <ion-icon name="link" color="gray"></ion-icon>
+      </ion-segment-button>
+
+    </ion-segment>
+
