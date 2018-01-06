@@ -1,0 +1,8 @@
+{
+  "name": "bills",
+  "app_id": "908e2a22",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
