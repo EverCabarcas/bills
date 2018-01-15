@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import "rxjs/add/operator/map";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 
 
 /*
@@ -11,13 +11,13 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 */
 @Injectable()
 export class AuthProvider {
-
+    estado: boolean;
   constructor(private http: HttpClient) {
     console.log('Hello AuthProvider Provider');
   }
 
-  getUser(){
-      const body = 'username=nubia&password=123';
+  getUser(username: String, password: String){
+      const body = 'username='+username+'&password='+password+'';
 
     const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
 
@@ -25,7 +25,14 @@ export class AuthProvider {
         ;
 
   }
+  setb(b:boolean){
+      this.estado = b;
+  }
+  getb(){
+      return this.estado;
+  }
 
+/*
   postUser(){
       const body = 'username=nubia&password=123';
 
@@ -34,5 +41,5 @@ export class AuthProvider {
       return this.http.post('https://whatbills.herokuapp.com/user/send', body,{headers: headers})
           ;
   }
-
+*/
 }

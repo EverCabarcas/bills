@@ -1,1 +1,74 @@
-<p>estoy en cuenta</p>
+<ion-grid>
+
+<ion-card>
+
+    <ion-card-header>
+        <h2 align-items-center="">Concepto {{message}}</h2>
+    </ion-card-header>
+
+    <ion-card-content>
+
+        <ion-item>
+            <ion-label stacked="">Nombre:</ion-label>
+            <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked="">Descripción</ion-label>
+            <ion-textarea [(ngModel)]="descripcion"></ion-textarea>
+        </ion-item>
+
+    </ion-card-content>
+    <ion-segment>
+        <ion-segment-button icon-only="" value="archive"><ion-icon name="archive"></ion-icon></ion-segment-button>
+        <ion-segment-button icon-only="" value="trash"><ion-icon name="trash"></ion-icon></ion-segment-button>
+
+        <ion-segment-button  icon-only="">
+            <ion-icon name='arrow-dropright-circle'></ion-icon>
+        </ion-segment-button>
+
+    </ion-segment>
+</ion-card>
+
+<ion-fab right bottom>
+    <button class="miclase2" ion-fab (click)="onAdd()">
+        <ion-icon name="add">
+        </ion-icon>
+    </button>
+</ion-fab>
+</ion-grid>
+
+<ion-grid>
+
+    <ion-card>
+
+        <ion-card-header>
+            <h2 align-items-center="">Concepto {{message}}</h2>
+        </ion-card-header>
+
+        <ion-card-content>
+
+            <ion-item>
+                <ion-label stacked="">Nombre:</ion-label>
+                <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked="">Descripción</ion-label>
+                <ion-textarea [(ngModel)]="descripcion"></ion-textarea>
+            </ion-item>
+
+        </ion-card-content>
+        <ion-segment>
+            <ion-segment-button icon-only="" value="archive"><ion-icon name="archive"></ion-icon></ion-segment-button>
+            <ion-segment-button icon-only="" value="trash"><ion-icon name="trash"></ion-icon></ion-segment-button>
+
+            <ion-segment-button  icon-only="" value="siguiente">
+                <ion-icon name='arrow-dropright-circle'></ion-icon>
+            </ion-segment-button>
+
+        </ion-segment>
+    </ion-card>
+</ion-grid>
+
+

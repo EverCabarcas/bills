@@ -4,37 +4,35 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<!--
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
- <p>holiwis</p>
-</ion-header>
--->
+<ion-content class="mio">
+    <div class="nose">
 
-<ion-content padding="">
-<ion-list>
+        <form (ngSubmit)="onForm()" class="casita">
 
-    <form (ngSubmit)="onForm()">
+            <ion-item class="casita">
+                <ion-label floating="">Username</ion-label>
+                <ion-input type="text" [(ngModel)]="nombre" name="nombre"></ion-input>
+            </ion-item>
 
-    <ion-item>
-        <ion-label floating="">Username</ion-label>
-        <ion-input type="text" [(ngModel)]="p.nombre" name="nombre"></ion-input>
-    </ion-item>
+            <ion-item class="casita">
+                <ion-label floating="">Password</ion-label>
+                <ion-input  type="password" [(ngModel)]="password" name="password"></ion-input>
+            </ion-item>
 
-    <ion-item>
-        <ion-label floating="">Password</ion-label>
-        <ion-input type="password" [(ngModel)]="p.password" name="password"></ion-input>
-    </ion-item>
+            <div class="nose2">
+                <button class="nose3" ion-button  type="submit" round>Sign In</button>
+            </div>
 
-    <div padding-top="50px" padding-left="20">
-    <button ion-button block type="submit">Sign In</button>
+        </form>
+
     </div>
-
-    </form>
-
-</ion-list>
-    <h2>{{res}}</h2>
 </ion-content>
+
+
+
+
+
+
+
+

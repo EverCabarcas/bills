@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the PrincipalPage page.
@@ -16,11 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PrincipalPage {
   public op: string = 'card';
     buttonColor: string = '#000'; //Default Color
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrincipalPage');
+    this.viewCtrl.showBackButton(false)
   }
 
 

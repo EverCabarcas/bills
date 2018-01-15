@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {PrincipalPage} from "../principal/principal";
 import {AuthProvider} from "../../providers/auth/auth";
+import {modelito} from "../../modelos/modelito";
+
 
 /**
  * Generated class for the LoginPage page.
@@ -18,9 +20,12 @@ import {AuthProvider} from "../../providers/auth/auth";
 export class LoginPage {
  principal:any = PrincipalPage;
   p = {};
-  res: any;
-    res2: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider) {
+    respuestica = new modelito();
+  nombre: String;
+  password: String;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public authProvider: AuthProvider, public loadingCtrl: LoadingController,
+              public alertCtrl: AlertController) {
   }
 /*
   ionViewDidLoad() {
@@ -30,17 +35,37 @@ export class LoginPage {
   */
     onForm(){
 
-        console.log(this.p);
+        console.log(this.nombre, this.password);
+        let loader = this.loadingCtrl.create({
+            content: "espere por favor...",
+            duration: 2000
+        });
+        loader.present();
         //this.navCtrl.push(this.principal);
-        this.authProvider.postUser()
+
+        this.authProvider.getUser(this.nombre, this.password)
             .subscribe(
                 (data) => {
-                   console.log(data)
+
+                   // this.res = data;
+                    this.respuestica.estado  = Boolean(data);
+                    console.log(this.respuestica);
+                    if(this.respuestica.estado == true){
+                        this.navCtrl.push(this.principal);
+                    }
                 },
                 (error2) => {
-                    console.error(error2)
+                    this.respuestica.mensaje = error2;
+                    let alert = this.alertCtrl.create({
+                        title: 'LOGIN',
+                        subTitle: this.respuestica.mensaje+' Error en su Username o Password',
+                        buttons: ['OK']
+                    });
+                   alert.present();
                 }
             );
+
     }
+
 
 }
